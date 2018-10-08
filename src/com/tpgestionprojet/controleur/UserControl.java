@@ -1,9 +1,11 @@
 package com.tpgestionprojet.controleur;
 
-import java.sql.Connection;
+import java.sql.Connection;	
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 
 import com.tpgestionprojet.model.UserModel;
 
@@ -12,10 +14,6 @@ public class UserControl {
 	ConnexionBD bdd;
 	Connection connec;
 	Statement stat ;
-	
-	
-	
-	
 	
 	public void ajouter(UserModel userm)
 	
@@ -31,28 +29,16 @@ public class UserControl {
 		ps.setString(4, userm.getPassword());
 		ps.setString(5, userm.getFonction());
 		
-		System.out.println(userm.getNom());
-		System.out.println(userm.getPrenom());
-		System.out.println(userm.getFonction());
-		
-		int val = ps.executeUpdate();
-		
-		//connect = bdd.connect();
-	
-		
-		System.out.println("on a reussi controlleur"+val);
+		//int val = ps.executeUpdate();
+		//System.out.println("on a reussi controlleur"+val);
 		 }
 		 	catch(Exception ex)
 		 		{
 		 			System.out.println("erreur ajoutercontruser"+ex.getMessage());
 		 		}
 	}
-
 	
-	public  void enreg(UserModel userm)
-	
-	{
-		
+	public  void enreg(UserModel userm) {
 		try {
 			  bdd = new  ConnexionBD();
 			  
@@ -64,4 +50,28 @@ public class UserControl {
 			    System.out.println("erreur insertion nouveau user" +e.getMessage());
 		     }
 	}
+	
+	// Méthode permettant de renvoyer le login et le mot de passe
+	public String ConnexionAdmin (String email, String password) {
+		
+		bdd = new ConnexionBD();
+		String message = null;
+		try {
+			PreparedStatement stat = bdd.connect().prepareStatement("select  email, password from usersi where email=? and password = ?");
+			stat.setString(1, email);
+            stat.setString(2, password);
+		ResultSet	resultat = stat.executeQuery();
+            if(resultat.next()){  
+    
+                message = "SUCCESS";
+            }else{
+                message = "FAILURE";
+            }
+        } catch (Exception e) {
+            message = "FAILURE";
+            e.printStackTrace();
+        }
+        return message;
+    }
+	
 }

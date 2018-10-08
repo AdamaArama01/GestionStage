@@ -8,7 +8,6 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/Admin</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>VisiteurServlet</servlet-name>
     <servlet-class>com.tpgestionprojet.servlet.VisiteurServlet</servlet-class>
@@ -17,7 +16,6 @@
     <servlet-name>VisiteurServlet</servlet-name>
     <url-pattern>/Partage</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>OffreServlet</servlet-name>
     <servlet-class>com.tpgestionprojet.servlet.OffreServlet</servlet-class>
@@ -25,6 +23,23 @@
   <servlet-mapping>
     <servlet-name>OffreServlet</servlet-name>
     <url-pattern>/offres</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SupprOffreServlet</servlet-name>
+    <servlet-class>com.tpgestionprojet.servlet.SupprOffreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SupprOffreServlet</servlet-name>
+    <url-pattern>/Suppr1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DeleteOffreServlet</servlet-name>
+    <servlet-class>com.tpgestionprojet.servlet.DeleteOffreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteOffreServlet</servlet-name>
+    <url-pattern>/Suppr2</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -35,5 +50,28 @@
     <servlet-name>ListeLiensServlet</servlet-name>
     <url-pattern>/Offr</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>ListeOffreServlet</servlet-name>
+    <servlet-class>com.tpgestionprojet.servlet.ListeOffreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListeOffreServlet</servlet-name>
+    <url-pattern>/LesOffres</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RecupLienOffreServlet</servlet-name>
+    <servlet-class>com.tpgestionprojet.servlet.RecupererLienOffreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecupLienOffreServlet</servlet-name>
+    <url-pattern>/Recup</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.tpgestionprojet.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/SeConnecter</url-pattern>
+  </servlet-mapping>
 </web-app>

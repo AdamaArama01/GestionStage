@@ -49,9 +49,6 @@ public class UserServlet extends HttpServlet {
 		users.setFonction(fonction);
 		
 		cont.ajouter(users);
-		//cont.enreg(users);
-		
-		System.out.println("enregistrement effectue ! merci bravo1 retour a la base");
 		
 	}
 	

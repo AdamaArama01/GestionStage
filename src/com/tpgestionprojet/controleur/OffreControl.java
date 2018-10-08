@@ -1,13 +1,16 @@
 package com.tpgestionprojet.controleur;
 
-import java.sql.Connection;
+import java.sql.Connection;	
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpServletRequest;
 
 import com.tpgestionprojet.model.OffreModel;
-import com.tpgestionprojet.model.UserModel;
 import com.tpgestionprojet.model.VisiteurModel;
 
 public class OffreControl {
@@ -16,77 +19,175 @@ public class OffreControl {
 	Statement stat;
 	ResultSet resultat;
 	
+	// Méthode qui retourne id d'un administrateur
+	public int RecupIdAdmin(String email, String password) {
+		//System.out.println(idvis);
+		bdd = new ConnexionBD();
+		int idadminis =0;
+		//String nomadminis ="";
 	
-	
-	// methode permettant de determiner l'id d'un user a partir de son nom et password
-		public int iduss (String email,String password)
-		{
-			int idus = 0;
-			
-			
-			try {
-				  stat = bdd.connect().createStatement();
-				  resultat = stat.executeQuery("select idus from usersi where email = '"+email+"' and password = '"+password+"'");
-				  if(resultat.next())
-					  idus = resultat.getInt("idus");
-				  
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			PreparedStatement stat = bdd.connect().prepareStatement("select idus from usersi where email=? and password = ?");
+			stat.setString(1, email);
+			stat.setString(2, password);
+			resultat = stat.executeQuery();
+			while(resultat.next()){ 
+				idadminis =  ((Number) resultat.getObject(1)).intValue();				
+		      }
+		} 
+		catch (SQLException ex) {
+				ex.printStackTrace();
 			}
-			
-			
-			return idus;
-		}
+		//System.out.println(libelle);
+			return idadminis;
+}		
+	// Méthode qui retourne le nom d'un administrateur
+	public String RecupNomAdmin(String email, String password) {
+		//System.out.println(idvis);
+		bdd = new ConnexionBD();
+		String nomadminis ="";
 	
-public void ajouter(OffreModel offrem)
+		try {
+			PreparedStatement stat = bdd.connect().prepareStatement("select nom from usersi where email=? and password = ?");
+			stat.setString(1, email);
+			stat.setString(2, password);
+			resultat = stat.executeQuery();
+			while(resultat.next()){ 
+				//idadminis =  ((Number) resultat.getObject(1)).intValue();
+				//idadminis = Integer.parseInt(resultat.getObject(1).toString());
+				nomadminis = resultat.getObject(1).toString();
+		      }
+		} 
+		catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		//System.out.println(libelle);
+			return nomadminis;
+}	
 	
-	{
-		 try {
-			 bdd = new ConnexionBD();
+	// methode qui va retourner la liste de toutes les offres crées 
+	public ArrayList<OffreModel> listeoffres() {
+		ArrayList<OffreModel> arry = new ArrayList<OffreModel>();
+		bdd = new ConnexionBD();	
+				try {
+					stat = bdd.connect().createStatement();
+					resultat = stat.executeQuery("select idof,titre,description,duree,debut,lieu,service,categorie,idvisiteur,idadmin from offreur");
+									
+					while(resultat.next())
+					{
+						
+						OffreModel utilis = new OffreModel();	
+						utilis.setIdof(resultat.getInt("idof"));
+						utilis.setTitre(resultat.getString("titre"));
+						utilis.setDescription(resultat.getString("description"));
+						utilis.setDuree(resultat.getString("duree"));
+						utilis.setDebut(resultat.getString("debut"));
+						utilis.setLieu(resultat.getString("lieu"));
+						utilis.setService(resultat.getString("service"));
+						utilis.setCategorie(resultat.getString("categorie"));
+						utilis.setIdvisiteur(resultat.getInt("idvisiteur"));
+						utilis.setIdadmin(resultat.getInt("idadmin"));
+						
+						arry.add(utilis);
+					}
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return arry;
+			}
+	
+		public void ajouter(OffreModel offrem) {
+					try {
+							bdd = new ConnexionBD();
 		
 		
-		PreparedStatement ps=bdd.connect().prepareStatement("INSERT INTO offreur (titre,duree,debut,lieu,service,categorie,idvisiteur,idadmin) VALUES(?,?,?,?,?,?,?,?)");
+		PreparedStatement ps=bdd.connect().prepareStatement("INSERT INTO offreur (titre,description,duree,debut,lieu,service,categorie,idvisiteur,idadmin) VALUES(?,?,?,?,?,?,?,?,?)");
 		ps.setString(1, offrem.getTitre());
-		ps.setString(2, offrem.getDuree());
-		ps.setString(3, offrem.getLieu());
-		ps.setString(4, offrem.getService());
-		ps.setString(5, offrem.getCategorie());
-		ps.setInt(6, offrem.getIdvisiteur());
-		ps.setInt(7, offrem.getIdadmin());
-		ps.setInt(6, offrem.getIdadmin());
+		ps.setString(2, offrem.getDescription());
+		ps.setString(3, offrem.getDuree());
+		ps.setString(4, offrem.getDebut());
+		ps.setString(5, offrem.getLieu());
+		ps.setString(6, offrem.getService());
+		ps.setString(7, offrem.getCategorie());
+		ps.setInt(8, offrem.getIdvisiteur());
+		ps.setInt(9, offrem.getIdadmin());
 		
-		int val = ps.executeUpdate();
-		
-		
-		
-		
-		//connect = bdd.connect();
+		 ps.executeUpdate();
 	
-		//System.out.println("on a reussi controlleur"+val);
 		 }
 		 
 		 catch(Exception ex)
 	 		{
 	 			System.out.println("erreur ajoutercontruser"+ex.getMessage());
 	 		}
-}
-
-
-public  void enreg(UserModel userm)
-
-{
-	
-	try {
-		  bdd = new  ConnexionBD();
-		  
-		   stat = bdd.connect().createStatement();
-		   stat.executeUpdate("INSERT INTO usersi (nom,prenom,email,password,fonction) VALUES('"+userm.getNom()+"','"+userm.getPrenom()+"','"+userm.getEmail()+"','"+userm.getPassword()+"','"+userm.getFonction()+"') ");
-	    } 
-	catch (SQLException e) 
-	     {
-		    System.out.println("erreur insertion nouveau user" +e.getMessage());
-	     }
 	}
+		
+ // Méthode permettant de modifier l'offres
+	/*public void ModifierOffre(OffreModel offrem) {
+			try {
+					bdd = new ConnexionBD();
+
+		PreparedStatement ps=bdd.connect().prepareStatement("UPDATE offreur set titre=?,description=?,duree=?,debut=?,lieu=?,service=?,categorie=? where idof=?");
+	ps.setString(1, offrem.getTitre());
+	ps.setString(2, offrem.getDescription());
+	ps.setString(3, offrem.getDuree());
+	ps.setString(4, offrem.getDebut());
+	ps.setString(5, offrem.getLieu());
+	ps.setString(6, offrem.getService());
+	ps.setString(7, offrem.getCategorie());
+	ps.setInt(8, offrem.getIdvisiteur());
+	ps.setInt(9, offrem.getIdadmin());
+
+	ps.executeUpdate();
+
+ }
+ 
+			catch(Exception ex)
+		{
+			System.out.println("erreur ajoutercontruser"+ex.getMessage());
+		}
+}*/
+		
+		// Méthode permettant de rechercher l'offre par titre, lieu et catégorie
+		public void RechercherOffre(OffreModel offrem, HttpServletRequest request) {
+				try {
+						bdd = new ConnexionBD();
+
+		PreparedStatement ps=bdd.connect().prepareStatement
+		("select * from offreur where" +request.getParameter("critere")+"LIKE '%'"+request.getParameter("search")+"'%' ");
+		ps.setString(1, offrem.getTitre());
+		ps.setString(2, offrem.getDescription());
+		ps.setString(3, offrem.getDuree());
+		ps.setString(4, offrem.getDebut());
+		ps.setString(5, offrem.getLieu());
+		ps.setString(6, offrem.getService());
+		ps.setString(7, offrem.getCategorie());
+		ps.setInt(8, offrem.getIdvisiteur());
+		ps.setInt(9, offrem.getIdadmin());
+
+		ps.executeUpdate();
+
+	 }
+	 
+				catch(Exception ex)
+			{
+				System.out.println("erreur ajoutercontruser"+ex.getMessage());
+			}
+	}
+		
+		// Méthode permettant de faire une suppression (Offres créées)
+				public void DeleteOffreCreer(int idof) {
+					bdd = new ConnexionBD();
+					try {
+						PreparedStatement ps = bdd.connect().prepareStatement("delete from offreur where idof=?");
+						ps.setInt(1, idof);
+						ps.executeUpdate();
+						ps.close();	
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
 }
 

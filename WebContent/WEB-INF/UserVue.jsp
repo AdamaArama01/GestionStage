@@ -4,22 +4,45 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Administrateur</title>
+<title>Inscription</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<p>Bonjour à vous tous !</p>
-
- <p> 
+<div>
  	<form method="post" action="UserServlet">
- 		<p> <label for="nom"> Nom :</label> <input name="nom" type="text" id="nom" > </p>
- 		<p> <label for="prenom"> prenom :</label> <input name="prenom" type="text" id="prenom" > </p>
- 		<p> <label for="email"> mail :</label> <input name="email" type="text"  id="email"> </p>
- 		<p> <label for="password"> password :</label> <input name="password" type="text" id="password" > </p>
- 		<p> <label for="fonction"> fonction :</label> <input name="fonction" type="text" id="fonction" > </p>
- 
- 	 <input name="envoyer" type="submit"  value="save"> 
+ 	<fieldset>
+	<legend>Inscription</legend>
+	<p>Ici, le formulaire d'inscription des administrateurs</p>
+	<label for="nom">Nom<span
+	class="requis">*</span></label>
+	<input type="text" autocomplete="off" id="nom" name="nom" value=""
+	size="30" maxlength="20" />
+	<br/>
+ 	<label for="prenom">Prénom<span
+	class="requis"></span></label>
+	<input type="text" autocomplete="off" id="prenom"
+	name="prenom" value="" size="30" maxlength="20" />
+	<br/>
+ 	<label for="email">Adresse email<span
+	class="requis"></span></label>
+	<input type="text" autocomplete="off" id="email"
+	name="email" value="" size="30" maxlength="40" />
+	<br/>
+	<label for="Password">Mot de passe<span
+	class="requis">*</span></label>
+	<input type="text" autocomplete="off" id="password"
+	name="password" value="" size="30" maxlength="20" />
+	<br/>	
+ 	<label for="fonction">Fonction à l'IFI<span
+	class="requis">*</span></label>
+	<input type="text" autocomplete="off" id="fonction"
+	name="fonction" value="" size="30" maxlength="40" />
+	<br/>	
+  	<input type="submit" value="Enregistrer"
+	class="sansLabel" />
+	<br />
+	</fieldset>
  	</form>
- 
-
+ </div>	
 </body>
 </html>

@@ -14,7 +14,7 @@ public class ConnexionBD {
 			
 			try {
 					Class.forName("org.postgresql.Driver");
-					System.out.println("driver ok");
+					//System.out.println("driver ok");
 				} 
 			catch(ClassNotFoundException ex) 
 				{
@@ -22,7 +22,7 @@ public class ConnexionBD {
 				}
 			try {
 					connexion = DriverManager.getConnection(url, users, passwd);
-					System.out.println("connection etablie");	
+					//System.out.println("connection etablie");	
 				}
 			catch (Exception e) 
 				{

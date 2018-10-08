@@ -4,19 +4,34 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>EspacePartage</title>
+<title>Partager</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<p>Bienvenue dans l'espace visiteur !</p>
-
- <p> 
+<div>
  	<form method="post" action="VisiteurServlet">
- 		<p> <label for="reference"> Référence :</label> <input name="reference" type="text" id="reference" > </p>
- 		<p> <label for="email"> Email :</label> <input name="email" type="text" id="email" > </p>
- 		<p> <label for="lienoffre"> Lien :</label> <input name="lienoffre" type="text" id="lienoffre" > </p>
- 	 <input name="envoyer" type="submit"  value="save"> 
+ 	<fieldset>
+	<legend>Partager</legend>
+	<p>Vous pouvez partager les offres via ce formulaire.</p>
+	<label for="reference">Adresse visiteur <span
+	class="requis">*</span></label>
+	<input type="text" autocomplete="off" id="email" name="reference" value=""
+	size="20" maxlength="60" />
+	<br/>
+	<label for="email">Adresse email<span
+	class="requis">*</span></label>
+	<input type="text" autocomplete="off" id="email"
+	name="email" value="" size="20" maxlength="20" />
+	<br/>
+	<label for="lienoffre">Lien de l'offre</label>
+	<input type="text" autocomplete="off" id="lienoffre" name="lienoffre" value=""
+	size="20" maxlength="200" />
+	<br/>
+	<input type="submit" value="Envoyer"
+	class="sansLabel" />
+	<br />
+	</fieldset>
  	</form>
- 
-
+ </div>
 </body>
 </html>

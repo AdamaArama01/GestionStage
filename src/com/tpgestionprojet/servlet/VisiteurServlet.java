@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tpgestionprojet.controleur.UserControl;
+//import com.tpgestionprojet.controleur.UserControl;
 import com.tpgestionprojet.controleur.VisiteurControl;
-import com.tpgestionprojet.model.UserModel;
+//import com.tpgestionprojet.model.UserModel;
 import com.tpgestionprojet.model.VisiteurModel;
 
 @WebServlet("/VisiteurServlet")
@@ -20,7 +20,9 @@ public class VisiteurServlet extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		//doPost(request, response);
 		
 			VisiteurControl vitiscon = new VisiteurControl();
 			
@@ -36,7 +38,7 @@ public class VisiteurServlet extends HttpServlet {
 	
 		String reference = request.getParameter("reference");
 		String email = request.getParameter("email");
-		//String DatePart = request.getParameter("DatePart");
+		String DatePart = request.getParameter("DatePart");
 		String lienoffre = request.getParameter("lienoffre");
 				
 		
@@ -47,12 +49,12 @@ public class VisiteurServlet extends HttpServlet {
 		
 		visit.setReference(reference);
 		visit.setEmail(email);
-		//visit.setDatePart(DatePart);
+		visit.setDatePart(DatePart);
 		visit.setLienoffre(lienoffre);
 		
 		contlr.ajouter(visit);
 		
-		//System.out.println("enregistrement effectue ! merci bravo1 retour a la base");
+		
 		
 	}
 }

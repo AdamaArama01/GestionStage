@@ -4,6 +4,7 @@ public class OffreModel {
 	// Déclaration des attributs
 	private int idof;
 	private String titre;
+	private String description;
 	private String duree;
 	private String debut;
 	private String lieu;
@@ -18,6 +19,9 @@ public class OffreModel {
 	}
 	public String getTitre() {
 		return titre;
+	}
+	public String getDescription() {
+		return description;
 	}
 	public String getDuree() {
 		return duree;
@@ -48,6 +52,9 @@ public class OffreModel {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public void setDuree(String duree) {
 		this.duree = duree;
 	}
@@ -77,11 +84,12 @@ public class OffreModel {
 	}
 	
 	// Constructeur avec attributs
-	public OffreModel(int idof, String titre, String duree, String debut, String lieu, String service,
+	public OffreModel(int idof, String titre, String description, String duree, String debut, String lieu, String service,
 			String categorie, int idvisiteur, int idadmin) {
 		super();
 		this.idof = idof;
 		this.titre = titre;
+		this.description = description;
 		this.duree = duree;
 		this.debut = debut;
 		this.lieu = lieu;
@@ -90,7 +98,5 @@ public class OffreModel {
 		this.idvisiteur = idvisiteur;
 		this.idadmin = idadmin;
 	}
-	
-	
 
 }
