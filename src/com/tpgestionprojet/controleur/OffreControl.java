@@ -65,6 +65,28 @@ public class OffreControl {
 			return nomadminis;
 }	
 	
+	// Méthode pour récupérer la liste des emails des étudiant
+		public String RecupEmail() {
+			//System.out.println(idvis);
+			bdd = new ConnexionBD();
+			String emailetudiant ="";
+		
+			try {
+				PreparedStatement stat = bdd.connect().prepareStatement("select studentemail from etudiant");
+				//stat.setString(1, studentemail);
+				resultat = stat.executeQuery();
+				while(resultat.next()){ 
+					emailetudiant = resultat.getObject(1).toString();
+			      }
+			} 
+			catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			//System.out.println(libelle);
+				return emailetudiant;
+	}	
+	
+	
 	// methode qui va retourner la liste de toutes les offres crées 
 	public ArrayList<OffreModel> listeoffres() {
 		ArrayList<OffreModel> arry = new ArrayList<OffreModel>();
@@ -149,33 +171,6 @@ public class OffreControl {
 		}
 }*/
 		
-		// Méthode permettant de rechercher l'offre par titre, lieu et catégorie
-		public void RechercherOffre(OffreModel offrem, HttpServletRequest request) {
-				try {
-						bdd = new ConnexionBD();
-
-		PreparedStatement ps=bdd.connect().prepareStatement
-		("select * from offreur where" +request.getParameter("critere")+"LIKE '%'"+request.getParameter("search")+"'%' ");
-		ps.setString(1, offrem.getTitre());
-		ps.setString(2, offrem.getDescription());
-		ps.setString(3, offrem.getDuree());
-		ps.setString(4, offrem.getDebut());
-		ps.setString(5, offrem.getLieu());
-		ps.setString(6, offrem.getService());
-		ps.setString(7, offrem.getCategorie());
-		ps.setInt(8, offrem.getIdvisiteur());
-		ps.setInt(9, offrem.getIdadmin());
-
-		ps.executeUpdate();
-
-	 }
-	 
-				catch(Exception ex)
-			{
-				System.out.println("erreur ajoutercontruser"+ex.getMessage());
-			}
-	}
-		
 		// Méthode permettant de faire une suppression (Offres créées)
 				public void DeleteOffreCreer(int idof) {
 					bdd = new ConnexionBD();
@@ -188,6 +183,39 @@ public class OffreControl {
 					e.printStackTrace();
 				}
 			}
+				
+				public ArrayList<OffreModel> searchoffres(String critere, String search) {
+					ArrayList<OffreModel> arry = new ArrayList<OffreModel>();
+					bdd = new ConnexionBD();	
+							try {
+								stat = bdd.connect().createStatement();
+						        String sql = "select * from offreur WHERE "+critere;
+								resultat = stat.executeQuery(sql+" LIKE'%"+search+"%'");
+										
+								while(resultat.next())
+								{
+									
+									OffreModel utilis = new OffreModel();	
+									utilis.setIdof(resultat.getInt("idof"));
+									utilis.setTitre(resultat.getString("titre"));
+									utilis.setDescription(resultat.getString("description"));
+									utilis.setDuree(resultat.getString("duree"));
+									utilis.setDebut(resultat.getString("debut"));
+									utilis.setLieu(resultat.getString("lieu"));
+									utilis.setService(resultat.getString("service"));
+									utilis.setCategorie(resultat.getString("categorie"));
+									utilis.setIdvisiteur(resultat.getInt("idvisiteur"));
+									utilis.setIdadmin(resultat.getInt("idadmin"));
+									
+									arry.add(utilis);
+								}
+								
+							} catch (SQLException e) {
+								e.printStackTrace();
+							}
+							return arry;
+						}
+
 
 }
 

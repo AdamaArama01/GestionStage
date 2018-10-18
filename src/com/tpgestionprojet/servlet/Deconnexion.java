@@ -21,7 +21,7 @@ public class Deconnexion extends HttpServlet {
 		HttpSession session = request.getSession ();
 		session.removeAttribute("email");
 		session.invalidate();
-		request.getRequestDispatcher("/WEB-INF/LoginVue.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		
 	}
 	}

@@ -12,7 +12,7 @@ import com.tpgestionprojet.controleur.OffreControl;
 @WebServlet("/ListeOffreServlet")
 public class ListeOffreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+     
     public ListeOffreServlet() {
         super();
     }
@@ -20,7 +20,17 @@ public class ListeOffreServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		OffreControl offcon = new OffreControl();
-		request.setAttribute("listeoffre", offcon.listeoffres());
+		
+		String search = request.getParameter("search");
+		String critere = request.getParameter("critere");
+		if(search != null && critere != null) {
+			request.setAttribute("listeoffre", offcon.searchoffres(critere, search));
+		} else 
+		{
+			request.setAttribute("listeoffre", offcon.listeoffres());
+		}
+		
+		//request.setAttribute("listeoffre", offcon.listeoffres());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ListeOffre.jsp").forward(request, response);
 	}
 
