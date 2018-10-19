@@ -33,12 +33,12 @@ color: #0568CD;
 }
 /* Forms -----------------------------------------------------------
 ---------------------------- */
-form label {
+form ,label {
 float: left;
 width: 200px;
 margin: 3px 0px 0px 0px;
 }
-form input {
+form,input {
 margin: 3px 3px 0px 0px;
 border: 1px #999 solid;
 }

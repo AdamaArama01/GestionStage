@@ -6,75 +6,44 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Les Liens</title>
-<link rel = "stylesheet" type = "text/css" href = "css/style.css">   
-<style>
-#menu {
-	width: 100%;
-	height: 75px;;
-	background-color: #000fff;
-}
-
-#menu:hover {
-	background: #773300;
-}
-
-#pres {
-	position: relative;
-	width: 100%;
-	height: 75px;;
-}
-
-#pres ul {
-	float: right;
-	right: 10%;
-	padding-top: 15px;
-	margin-left: -400px;
-	position: relative;
-}
-
-#pres ul li {
-	margin-left: 20px;
-	float: left;
-	position: relative;
-}
-
-#pres ul li a {
+<link rel = "stylesheet" type = "text/css" href = "css/style.css">  
+<style> 
+table {
+	height: 100px;
+	width: 90%;
 	text-align: center;
-	display: inline-block;
-	background-color: #00A0A0;
-	height: 30px;
-	width: 100px;
-	color: #FD0;
-	padding-top: 10px;
-	text-decoration: none;
-	position: relative;
-	margin-bottom: 50px;
+	border-spacing: 10px;
+	background-color: grey;
 }
 
-#pres ul li a:hover {
-	background: #773300;
+thead {
+	background-color: black;
+	border-bottom: 0px solid #333ddf;
+	color: white;
 }
 
-#cent {
-	height: 100%;
+td {
+	color: black;
+	background-color: white;
+}
+
+form {
+	background-color: #F5F5F5;
+	height: 100px;
 	width: 100%;
-	background-color: #aaabbb;
+}
+select{
+height:40px;
+width: 20%;
 }
 
-#cen table {
-	height: 6px;
-	width: 100%;
-	background-color: blue;
-	text-align: center;
+button {
+height:40px;
+width: 20%;
 }
-
-th {
-    text-align: left;
-}
-
-tr:first-child {
-	font-weight: bold;
-	background-color: #777777;
+input{
+height:40px;
+width: 30%;
 }
 </style>
 </head>
@@ -83,12 +52,6 @@ tr:first-child {
 <div id="menu">
 		<h1>
 			<center><img src="logo_ifi.png" width="100%" height="100"/></center>
-		</h1>
-	</div>
-<div id="menu">
-		<h1>
-			<center><img src="logo_ifi.png" width="100%" height="100"/></center>
-			<h2 align="center">LISTE DES OFFRES RECUES</h2>
 		</h1>
 	</div>
 	<div id="pres">

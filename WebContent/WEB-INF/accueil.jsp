@@ -14,6 +14,16 @@
 <link rel="stylesheet" href="/style1.css" />
 <title>Home</title>
 <style>
+body{
+padding-top:0px;
+padding-right:50px;
+padding-bottom:0px;
+padding-left:70px;
+margin-top:0px;
+margin-rigth:50px;
+magin-left:70px;
+margin-bottom:0px;
+}
 #menu {
 	width: 100%;
 	height: 75px;;
@@ -85,65 +95,48 @@ tr:first-child {
 <body>
 	<div id="menu">
 		<h1>
-			<center><img src="logo_ifi.png" width="100%" height="100"/></center>
+			<center>
+				<img src="logo_ifi.png" width="100%" height="100" />
+			</center>
 		</h1>
 	</div>
 	<div id="pres">
 		<ul>
-			<li><a href="\GestionStage\SeConnecter">Connexion</a></li>
+			<li><a href="\GestionStage\Partage">Partage du Lien</a></li>
 			<li><a href="/LoginServlet" class="button blue">Utilisateur</a></li>
 			<li><a href="/create-offre" class="button blue">Offres</a></li>
 			<li><a href="/create-visiteur" class="button blue">Visiteurs</a></li>
 			<li><a href="#">Contact Us</a></li>
 			<li><a href="#" id="log">Login</a></li>
-			<li><a href="#" id="reg" data-toggle="modal"data-target="#myModal">Register</a></li>
-		</ul>
+			<li><a href="\GestionStage\SeConnecter">Connexion</a></li>
+		</ul>	
 	</div>
-
+<div class="leg1" height="10%" width="100%">
+		<form method="post" action="ListeOffreServlet" autocomplete="off">
+			<div border="2" align="center" background="blue" >
+			
+				<select name="critere" placeholder="Fonction" autofocus="autofocus" style="border-radius: 10px; padding: 5px">
+					<option value="titre">Titre</option>
+					<option value="lieu">Lieu</option>
+					<option value="categorie">Categorie</option>
+				</select> 
+				<input type="text" name="search" placeholder="Tapez un mot Clé" style="border-radius: 10px; padding: 5px"/>
+				<button type="submit" class="btn btn-primary">Rechercher</button>
+			</div>
+		</form>
+	</div>
 	<div class="form-control" id="frsDivTop">
 		<hr id="top" />
 		<div id="frstDiv">
 			<h2>
-				<span style="color: #dc143c" class=""></span> <span
-					style="color: green; font-weight: bolder; font-family: Calligrapher, Arial;"></span>
-				<span
-					style="color: red; font-weight: bolder; font-family: Calligrapher, Arial;">Offres
-					de stage </span><span style="color: #dc143c" class=""></span>
-				<div
-					style="background-color: rgba(0, 0, 0, 0.5); border-radius: 5px;">
-					<marquee direction="right" behaviour="alternate">
-						<span style="color: #ff1493;" class=""></span>
-					</marquee>
-				</div>
+				<span style="color: #dc143c" class=""></span> 
+				<span style="color: green; font-weight: bolder; font-family: Calligrapher, Arial;"></span>
+				<span style="color: red; font-weight: bolder; font-family: Calligrapher, Arial;">Offres de stage </span>
+				<span style="color: #dc143c" class=""></span>
+				<div style="background-color: rgba(0, 0, 0, 0.5); border-radius: 5px;"></div>
 			</h2>
 		</div>
-		
-		<hr id="mid" />
-		<br />
-
-		<div align="center">
-			<br />
-			<br />
-			<div id="form" style="">
-				<form action="LoginServlet" method="post" autocomplete="off">
-					<h2 style="color: white; font-family: Calligrapher;">Login
-						Here</h2>
-					<input type="email" name="email" placeholder="Email"
-						autofocus="autofocus" style="border-radius: 10px; padding: 5px">
-					<input type="password" name="password"
-						placeholder="Password" style="border-radius: 10px; padding: 5px">
-					<input type="submit" value="Se Connecter"
-						class="btn btn-primary">
-				</form>
-				<br />
-				<br />
-				<p align="center">
-					<a href="#" style="color: white;">Forgot your Password?</a>
-				</p>
-			</div>
-		</div>
-		<br>
-		<br>
+	
 		<hr id="dwn1" />
 		<div align="center" style="font-family: Calligrapher;">
 			<h3>

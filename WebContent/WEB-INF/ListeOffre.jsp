@@ -59,7 +59,7 @@ width: 30%;
 	</div>
 
 	<div class="leg1" height="10%" width="100%">
-		<form method="post" action="ListeOffreServlet">
+		<form method="post" action="ListeOffreServlet" autocomplete="off">
 			<div border="2" align="center" background="blue">
 				<select name="critere" placeholder="Fonction">
 					<option value="titre">Titre</option>
@@ -67,8 +67,8 @@ width: 30%;
 					<option value="categorie">Categorie</option>
 				</select> <input type="text" name="search" placeholder="Tapez un mot Clé" />
 				<button type="submit">Rechercher</button>
-				<li><a href="\GestionStage\LesOffres">Afficher_Tout</a></li>
-				<li><a href="\GestionStage\Logout">Se Deconnecter</a></li>
+				<li><a href="\GestionStage\LesOffres">Afficher_Tout</a>
+				<a href="\GestionStage\Logout">Se Deconnecter</a></li>
 			</div>
 		</form>
 	</div>

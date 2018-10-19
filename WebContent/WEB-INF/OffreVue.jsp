@@ -6,11 +6,67 @@
 <meta charset="ISO-8859-1">
 <title>Création de l'offre</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
+
+<style>
+
+body{
+padding-top:0px;
+padding-right:50px;
+padding-bottom:0px;
+padding-left:70px;
+margin-top:0px;
+margin-rigth:50px;
+magin-left:70px;
+margin-bottom:0px;
+}
+
+table {
+	height: 0px;
+	width: 90%;
+	background-color: white;
+	text-align: center;
+	border-spacing: 3px;
+	background-color: blue;
+}
+
+thead {
+	background-color: black;
+	border-bottom: 20px solid #333ddf;
+	color: white;
+}
+
+td {
+	color: black;
+	background-color: white;
+}
+
+form {
+	background-color: #F5F5F5;
+	height: 100px;
+	width: 100%;
+}
+select{
+height:40px;
+width: 20%;
+}
+
+button {
+height:40px;
+width: 20%;
+}
+input{
+height:40px;
+width: 30%;
+}
+
+
+</style>s
 </head>
 <body>
+<center>
  	<form method="post" action="OffreServlet">
- 	<fieldset>
-	<legend>Création de l'offre</legend>
+ 	<fieldset style="border : 50px solid #696969">
+	<legend style="border : 20px solid #D3FF00">Création de l'offre</legend>
 	<p>Bienvenue à l'espace de création de l'offre</p>
 	<label for="titre">Titre<span
 	class="requis">*</span></label>
@@ -76,5 +132,6 @@
 	<br />
 	</fieldset>
  	</form>
+ 	</center>
 </body>
 </html>
