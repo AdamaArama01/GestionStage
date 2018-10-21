@@ -8,6 +8,17 @@
 <title>Les Offres</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
+
+body{
+padding-top:0px;
+padding-right:50px;
+padding-bottom:0px;
+padding-left:70px;
+margin-top:0px;
+margin-rigth:50px;
+magin-left:70px;
+margin-bottom:0px;
+}
 table {
 	height: 0px;
 	width: 90%;
@@ -53,7 +64,7 @@ width: 30%;
 	<div id="menu">
 		<h1>
 			<center>
-				<img src="logo_ifi.png" width="100%" height="100" />
+				<img src="banniere.JPG" width="1250" height="100" />
 			</center>
 		</h1>
 	</div>
@@ -67,8 +78,8 @@ width: 30%;
 					<option value="categorie">Categorie</option>
 				</select> <input type="text" name="search" placeholder="Tapez un mot Clé" />
 				<button type="submit">Rechercher</button>
-				<li><a href="\GestionStage\LesOffres">Afficher_Tout</a>
-				<a href="\GestionStage\Logout">Se Deconnecter</a></li>
+				<li><a href="\GestionStage\LesOffres"  style="border : 2px solid #DfFF40"><h2 style="background : #22ff00">Afficher_Tout</h2></a>
+				<br/>
 			</div>
 		</form>
 	</div>
@@ -86,7 +97,7 @@ width: 30%;
 				<th>Lieu de Stage</th>
 				<th>Service du Stage</th>
 				<th>Catégorie</th>
-				<th>Id Offre</th>
+				<th>Lien offre</th>
 				<th>Id Admin</th>
 				<th>Actions</th>
 			</tr>
@@ -101,7 +112,7 @@ width: 30%;
 				<td><c:out value="${list.lieu}"></c:out></td>
 				<td><c:out value="${list.service}"></c:out></td>
 				<td><c:out value="${list.categorie}"></c:out></td>
-				<td><c:out value="${list.idvisiteur}"></c:out></td>
+				<td><c:out value="${list.lienoffres}"></c:out></td>
 				<td><c:out value="${list.idadmin}"></c:out></td>
 				<td><a href="${lists.lienoffre}" target="_blank">Publier</a> -
 					<a

@@ -7,7 +7,19 @@
 <meta charset="ISO-8859-1">
 <title>Les Liens</title>
 <link rel = "stylesheet" type = "text/css" href = "css/style.css">  
-<style> 
+<style>
+
+body{
+background-color:F5FFFA;
+padding-top:0px;
+padding-right:50px;
+padding-bottom:0px;
+padding-left:70px;
+margin-top:0px;
+margin-rigth:50px;
+magin-left:70px;
+margin-bottom:0px;
+} 
 table {
 	height: 100px;
 	width: 90%;

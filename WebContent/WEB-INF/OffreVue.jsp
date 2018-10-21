@@ -10,6 +10,7 @@
 <style>
 
 body{
+background-color:#F5FFFA;
 padding-top:0px;
 padding-right:50px;
 padding-bottom:0px;
@@ -26,12 +27,12 @@ table {
 	background-color: white;
 	text-align: center;
 	border-spacing: 3px;
-	background-color: blue;
+	background-color: grey;
 }
 
 thead {
 	background-color: black;
-	border-bottom: 20px solid #333ddf;
+	
 	color: white;
 }
 
@@ -41,33 +42,47 @@ td {
 }
 
 form {
-	background-color: #F5F5F5;
+	background-color: #548B54;
 	height: 100px;
 	width: 100%;
 }
 select{
-height:40px;
-width: 20%;
+height:35px;
+width: 50%;
 }
 
 button {
-height:40px;
-width: 20%;
+height:35px;
+width: 50%;
 }
 input{
-height:40px;
-width: 30%;
+height:35px;
+width: 50%;
+}
+input{
+height:35px;
+width: 50%;
 }
 
-
-</style>s
+textarea{
+height:75px;
+width: 50%;
+}
+</style>
 </head>
 <body>
+<div id="menu">
+		<h1>
+			<center>
+				<img src="banniere.JPG" width="100%" height="100" />
+			</center>
+		</h1>
+	</div>
 <center>
  	<form method="post" action="OffreServlet">
  	<fieldset style="border : 50px solid #696969">
-	<legend style="border : 20px solid #D3FF00">Création de l'offre</legend>
-	<p>Bienvenue à l'espace de création de l'offre</p>
+	<legend style="border : 20px solid  #FF8C00"><h1 style="background : #FF8C00">Création d'Offres </h1></legend>
+	<p><h2>Bienvenue à l'espace de création de l'offre</h2></p>
 	<label for="titre">Titre<span
 	class="requis">*</span></label>
 	<input type="text" autocomplete="off" id="titre" name="titre" value=""
@@ -75,8 +90,9 @@ width: 30%;
 	<br/>
 	<label for="titre">Description<span
 	class="requis">*</span></label>
+	<br/>
 	<textarea id="description" name="description" 
-	size="30" row="5"></textarea>
+	size="30" row="10" style="border : 4px solid #696969 height:200px "  ></textarea>
 	<br/>
  	<label for="duree">Durée du Stage<span
 	class="requis"></span></label>
@@ -118,7 +134,7 @@ width: 30%;
 	class="requis"></span></label>
 	<input type="text" autocomplete="off" id="idvis"
 	name="idvis" value="${lib}" size="30" maxlength="" />
-	<input type="hidden" value="${idvise}" name="idvise" id="idvise">
+	<input type="hidden" value="${lib}" name="idvise" id="idvise">
 	
 	<br/>	
  	<label for="idadmin">administrateur<span

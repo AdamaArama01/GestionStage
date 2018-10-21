@@ -21,6 +21,17 @@
   padding: 0;
 }
 
+body{
+padding-top:0px;
+padding-right:50px;
+padding-bottom:0px;
+padding-left:70px;
+margin-top:0px;
+margin-rigth:50px;
+magin-left:70px;
+margin-bottom:0px;
+}
+
 header {
   margin: 0;
   max-width: 100%;

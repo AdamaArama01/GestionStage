@@ -21,8 +21,16 @@ public class Deconnexion extends HttpServlet {
 		HttpSession session = request.getSession ();
 		session.removeAttribute("email");
 		session.invalidate();
-		request.getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+	    
+		 String redirectURL = "/GestionStage/accueil";
+		 response.sendRedirect(redirectURL);
+		//request.getRequestDispatcher( "/WEB-INF/ListeOffre.jsp").forward(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		
+		 
 	}
-	}
+}
 

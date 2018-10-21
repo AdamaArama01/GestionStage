@@ -19,7 +19,6 @@ public class UserServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
@@ -27,17 +26,13 @@ public class UserServlet extends HttpServlet {
 		
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+		
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String fonction = request.getParameter("fonction");
-		
-		
 		
 		UserModel users = new UserModel();
 		UserControl cont = new UserControl();
@@ -49,6 +44,9 @@ public class UserServlet extends HttpServlet {
 		users.setFonction(fonction);
 		
 		cont.ajouter(users);
+		
+		String redirectURL = "/GestionStage/accueil";
+	    response.sendRedirect(redirectURL);
 		
 	}
 	

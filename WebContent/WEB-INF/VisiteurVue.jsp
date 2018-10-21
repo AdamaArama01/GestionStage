@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Partager</title>
+<title>GestionStage | Partage lien</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 
 <style>
@@ -61,22 +61,20 @@ label{
 }
 </style>
 
-</head>
-<body>
+</head style="border : 50px solid #622069">
+<bodystyle="border : 50px solid #696969">
 <div id="menu">
 		<h1>
 			<center>
-				<img src="logo_ifi.png" width="70%" height="100" />
+				<img src="banniere.JPG" width="100%" height="100" />
 			</center>
 		</h1>
-	</div>
-	<div id="frstDiv">
+</div>
+<div id="frstDiv">
 			<h2>
 				<span style="color: #dc143c" class=""></span> <span
 					style="color: green; font-weight: bolder; font-family: Calligrapher, Arial;"></span>
-				<span
-					style="color: red; font-weight: bolder; font-family: Calligrapher, Arial;">Offres
-					de stage </span><span style="color: #dc143c" class=""></span>
+				<span style="color: #dc143c" class=""></span>
 				<div style="background-color: rgba(0, 0, 0, 0.5); border-radius: 5px;">
 					<marquee direction="right" behaviour="alternate">
 						<span style="color: #ff1493;" class=""></span>
@@ -88,7 +86,7 @@ label{
 <div>
  	<form method="post" action="VisiteurServlet">
  	<fieldset style="border : 50px solid #696969">
-	<legend style="border : 20px solid #D3FF00"><h1>Partager</h1></legend>
+	<legend style="border : 20px solid #800000"><h1>Partager Lien</h1></legend>
 	<p><h2>Vous pouvez partager les offres via ce formulaire.</h2></p>
 	<label for="reference">Adresse visiteur <span
 	class="requis">*</span></label>

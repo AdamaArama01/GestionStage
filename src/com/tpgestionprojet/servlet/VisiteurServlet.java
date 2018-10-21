@@ -22,7 +22,7 @@ public class VisiteurServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		//doPost(request, response);
+		 // doPost(request, response);
 		
 			VisiteurControl vitiscon = new VisiteurControl();
 			
@@ -31,6 +31,7 @@ public class VisiteurServlet extends HttpServlet {
 			//System.out.println("taille des liens"+vitiscon.listeoffreVis().size());
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/VisiteurVue.jsp").forward(request, response);
+		
 		
 	}
 
@@ -54,7 +55,8 @@ public class VisiteurServlet extends HttpServlet {
 		
 		contlr.ajouter(visit);
 		
-		
+		String redirectURL = "/GestionStage/accueil";
+	    response.sendRedirect(redirectURL);
 		
 	}
 }

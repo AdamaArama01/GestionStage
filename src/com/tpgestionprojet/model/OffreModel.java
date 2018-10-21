@@ -10,7 +10,7 @@ public class OffreModel {
 	private String lieu;
 	private String service;
 	private String categorie;
-	private int idvisiteur;
+	private String lienoffres;
 	private int idadmin;
 	
 	// Les getters
@@ -38,8 +38,8 @@ public class OffreModel {
 	public String getCategorie() {
 		return categorie;
 	}
-	public int getIdvisiteur() {
-		return idvisiteur;
+	public String getLienoffres() {
+		return lienoffres;
 	}
 	public int getIdadmin() {
 		return idadmin;
@@ -70,8 +70,8 @@ public class OffreModel {
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
 	}
-	public void setIdvisiteur(int idvisiteur) {
-		this.idvisiteur = idvisiteur;
+	public void setLienoffres(String lienoffres) {
+		this.lienoffres = lienoffres;
 	}
 	public void setIdadmin(int idadmin) {
 		this.idadmin = idadmin;
@@ -85,7 +85,7 @@ public class OffreModel {
 	
 	// Constructeur avec attributs
 	public OffreModel(int idof, String titre, String description, String duree, String debut, String lieu, String service,
-			String categorie, int idvisiteur, int idadmin) {
+			String categorie, String lienoffres, int idadmin) {
 		super();
 		this.idof = idof;
 		this.titre = titre;
@@ -95,8 +95,9 @@ public class OffreModel {
 		this.lieu = lieu;
 		this.service = service;
 		this.categorie = categorie;
-		this.idvisiteur = idvisiteur;
+		this.lienoffres = lienoffres;
 		this.idadmin = idadmin;
 	}
+	
 
 }

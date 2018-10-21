@@ -93,7 +93,7 @@ public class OffreControl {
 		bdd = new ConnexionBD();	
 				try {
 					stat = bdd.connect().createStatement();
-					resultat = stat.executeQuery("select idof,titre,description,duree,debut,lieu,service,categorie,idvisiteur,idadmin from offreur");
+					resultat = stat.executeQuery("select idof,titre,description,duree,debut,lieu,service,categorie,lienoffres,idadmin from offreur");
 									
 					while(resultat.next())
 					{
@@ -107,7 +107,8 @@ public class OffreControl {
 						utilis.setLieu(resultat.getString("lieu"));
 						utilis.setService(resultat.getString("service"));
 						utilis.setCategorie(resultat.getString("categorie"));
-						utilis.setIdvisiteur(resultat.getInt("idvisiteur"));
+						utilis.setLienoffres(resultat.getString("lienoffres"));;
+						//utilis.setIdvisiteur(resultat.getInt("idvisiteur"));
 						utilis.setIdadmin(resultat.getInt("idadmin"));
 						
 						arry.add(utilis);
@@ -124,7 +125,7 @@ public class OffreControl {
 							bdd = new ConnexionBD();
 		
 		
-		PreparedStatement ps=bdd.connect().prepareStatement("INSERT INTO offreur (titre,description,duree,debut,lieu,service,categorie,idvisiteur,idadmin) VALUES(?,?,?,?,?,?,?,?,?)");
+		PreparedStatement ps=bdd.connect().prepareStatement("INSERT INTO offreur (titre,description,duree,debut,lieu,service,categorie,lienoffres,idadmin) VALUES(?,?,?,?,?,?,?,?,?)");
 		ps.setString(1, offrem.getTitre());
 		ps.setString(2, offrem.getDescription());
 		ps.setString(3, offrem.getDuree());
@@ -132,7 +133,8 @@ public class OffreControl {
 		ps.setString(5, offrem.getLieu());
 		ps.setString(6, offrem.getService());
 		ps.setString(7, offrem.getCategorie());
-		ps.setInt(8, offrem.getIdvisiteur());
+		ps.setString(8, offrem.getLienoffres());
+		//ps.setInt(8, offrem.getIdvisiteur());
 		ps.setInt(9, offrem.getIdadmin());
 		
 		 ps.executeUpdate();
@@ -204,7 +206,8 @@ public class OffreControl {
 									utilis.setLieu(resultat.getString("lieu"));
 									utilis.setService(resultat.getString("service"));
 									utilis.setCategorie(resultat.getString("categorie"));
-									utilis.setIdvisiteur(resultat.getInt("idvisiteur"));
+									utilis.setLienoffres(resultat.getString("lienoffres"));;
+									//utilis.setIdvisiteur(resultat.getInt("idvisiteur"));
 									utilis.setIdadmin(resultat.getInt("idadmin"));
 									
 									arry.add(utilis);
@@ -215,6 +218,29 @@ public class OffreControl {
 							}
 							return arry;
 						}
+				
+				// Méthode qui retourne le lien d'une offre
+				public String RecupLien(int id) {
+					
+					bdd = new ConnexionBD();
+					String lien ="";
+				
+					try {
+						PreparedStatement stat = bdd.connect().prepareStatement("select lienoffre from visiteur, offreur where offreur.idvisiteur=?");
+					
+						resultat = stat.executeQuery();
+						while(resultat.next()){ 
+							//idadminis =  ((Number) resultat.getObject(1)).intValue();
+							//idadminis = Integer.parseInt(resultat.getObject(1).toString());
+							lien = resultat.getObject(1).toString();
+					      }
+					} 
+					catch (SQLException ex) {
+							ex.printStackTrace();
+						}
+					//System.out.println(libelle);
+						return lien;
+			}
 
 
 }

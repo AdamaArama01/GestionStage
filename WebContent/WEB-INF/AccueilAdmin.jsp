@@ -10,14 +10,33 @@
 <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="/style1.css" />
-<title>Espace Admin</title>
+<title>GestionStage | Admin</title>
 <style>
-#menu {
-	width: 100%;
-	height: 200px;;
-	background-color: #ffffff
+body{
+padding-top:0px;
+padding-right:50px;
+padding-bottom:0px;
+padding-left:70px;
+margin-top:0px;
+margin-rigth:50px;
+magin-left:70px;
+margin-bottom:0px;
 }
 
+
+p{
+margin-top:0px;
+margin-rigth:50px;
+magin-left:70px;
+margin-bottom:0px;
+background-color: ##BBD2E1;
+
+}
+#menu {
+	width: 100%;
+	height: 200px;
+	background-color: #ffffff;
+}
 
 #pres {
 	width: 100%;
@@ -76,15 +95,19 @@ tr:first-child {
 	font-weight: bold;
 	background-color: #777777;
 }
+
+
 </style>
 </head>
 
 <body>
-	<div id="menu">
+<p>
+<div id="menu">
 		<h1>
-			<center><img src="logo_ifi.png" width="80%" height="60px"/></center>
+			<center>
+				<img src="banniere.JPG" width="1250" height="100"/>
+			</center>
 		</h1>
-		<h2 align="center">ESPACE ADMINISTRATEUR</h2>
 	</div>
 	<div id="pres">
 		<ul>
@@ -108,6 +131,7 @@ tr:first-child {
 				</div>
 			</h2>
 		</div>
-
- </head>
+	</div>
+</p>
+ </body>
 </html>

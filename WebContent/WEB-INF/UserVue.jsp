@@ -32,12 +32,12 @@ width: 20%;
 
 button {
 height:30px;
-width: 20%;
+width: 35%;
 }
 input{
 
 height:30px;
-width: 30%;
+width: 40%;
 }
 
 legend{
@@ -52,25 +52,34 @@ margin:10px
 height:250px;
 width: 80%;
 font-size: 35px;
-background-color: #F5F5F5;
+background-color: #548B54;
 font-size: large;
 font-size: 150%;
 }
+center{
+margin-top:0px;
+margin-rigth:50px;
+magin-left:70px;
+margin-bottom:0px;
+background-color: ##BBD2E1;
+}
 
 label{
+height:30px;
+width: 50%;
 }
 </style>
 
 </head>
 <body>
+<p>
 <div id="menu">
 		<h1>
 			<center>
-				<img src="logo_ifi.png" width="70%" height="100"/>
+				<img src="banniere.JPG" width="100%" height="100" />
 			</center>
 		</h1>
 	</div>
-	
 	<div id="frstDiv">
 			<h2>
 				<span style="color: #dc143c" class=""></span> <span
@@ -89,8 +98,8 @@ label{
 <div >
 
  	<form method="post" action="UserServlet">
- 	<fieldset  style="border : 50px solid #696969">
-	<legend style="border : 20px solid #D3FF00"><h1>Inscription</h1></legend>
+ 	<fieldset  style="border : 50px solid #548B54">
+	<legend style="border : 20px solid #548B54"><h1>Inscription</h1></legend>
 	<p><h2>Ici, le formulaire d'inscription des administrateurs</h2></p>
 	<label for="nom">Nom<span
 	class="requis">*</span></label>
@@ -124,5 +133,6 @@ label{
  	</form>
  </div>	
  </center>
+ </p>
 </body>
 </html>

@@ -26,7 +26,7 @@ import com.tpgestionprojet.controleur.OffreControl;
 //import com.tpgestionprojet.controleur.UserControl;
 import com.tpgestionprojet.controleur.VisiteurControl;
 import com.tpgestionprojet.model.OffreModel;
-//import com.tpgestionprojet.model.UserModel;
+
 
 @WebServlet("/OffreServlet")
 public class OffreServlet extends HttpServlet {
@@ -43,8 +43,8 @@ public class OffreServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		OffreControl frm = new OffreControl();
 		VisiteurControl vst = new VisiteurControl();
+		
 		String ids = request.getParameter("idvis");
 		int idse = Integer.parseInt(ids);
 		String libelle = vst.RecupererLienOffre(idse);
@@ -64,13 +64,14 @@ public class OffreServlet extends HttpServlet {
 		String lieu = request.getParameter("lieu");
 		String service = request.getParameter("service");
 		String categorie = request.getParameter("categorie");
-		String lien = request.getParameter("idvis");
-		//String idvisiteur = request.getParameter("idvisiteur");
+		String lienoffres = request.getParameter("idvis");
+	    String lien = request.getParameter("idvis");
 		//String idadmin = request.getParameter("idadmin");
 		
 		int idad = (int) session.getAttribute("id");
 		int idviss = (int) session.getAttribute("ide");
-
+		
+		
 		OffreControl offcont = new OffreControl();
 		OffreModel offrs = new OffreModel();
 		
@@ -82,7 +83,8 @@ public class OffreServlet extends HttpServlet {
 		offrs.setLieu(lieu);
 		offrs.setService(service);
 		offrs.setCategorie(categorie);
-		offrs.setIdvisiteur(idviss);
+		offrs.setLienoffres(lienoffres);
+		//offrs.setLienoffres(idvis);
 		offrs.setIdadmin(idad);
 		
 		offcont.ajouter(offrs);
@@ -112,8 +114,8 @@ public class OffreServlet extends HttpServlet {
 				         msg.setSentDate(new Date());
 				         msg.setText("Bonjour "+nom+",\r\n" + 
 				        		"\r\n" + 
-				        		"Une offre de "+ titre +" a "+lieu+ " d'une duree de 0"+duree+" mois.\r\n" + 
-				        		"Pour plus de description veuillez acceder au lien suivant: "+lien
+				        		"Une offre de Stage "+ titre +" a "+lieu+ " d'une durée de 0"+duree+" mois.\r\n" + 
+				        		"Pour plus d'information veuillez accéder au lien suivant: "+lien
 				        		);
 				        Transport.send(msg);
 				      } 
@@ -129,15 +131,16 @@ public class OffreServlet extends HttpServlet {
 					ex.printStackTrace();
 				}
 			
-	     
-	      System.out.println("Message envoyé");
+			String redirectURL = "/GestionStage/accueil";
+		    response.sendRedirect(redirectURL);
+	    //  System.out.println("Message envoyé");
 	      
-			try {
-				connec.close();
+			/*try {
+				//connec.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 	}
 
 }

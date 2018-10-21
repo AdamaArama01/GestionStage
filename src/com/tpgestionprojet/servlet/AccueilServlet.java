@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tpgestionprojet.controleur.OffreControl;
 import com.tpgestionprojet.controleur.VisiteurControl;
 
 
@@ -21,7 +22,19 @@ public class AccueilServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		VisiteurControl vts = new VisiteurControl();
-		  
+        OffreControl offcon = new OffreControl();
+		
+		String search = request.getParameter("search");
+		String critere = request.getParameter("critere");
+	    
+		if(search != null && critere != null) {
+			request.setAttribute("listeoffre", offcon.searchoffres(critere, search));
+		} else 
+		{
+			request.setAttribute("listeoffre", offcon.listeoffres());
+		}
+		
+	
 	 	//request.setAttribute("ListeLiens", vts.listeoffreVis());
 		this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		//this.getServletContext().getRequestDispatcher("/WEB-INF/LoginVue.jsp").forward(request, response);

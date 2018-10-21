@@ -10,6 +10,7 @@
 <style>
 
 body{
+background-color:F5FFFA;
 padding-top:0px;
 padding-right:50px;
 padding-bottom:0px;
@@ -23,7 +24,7 @@ margin-bottom:0px;
 form {
 	border-color: grey;
 	height: 100px;
-	width: 100%;
+	width: 70%;
 }
 select{
 height:40px;
@@ -44,17 +45,18 @@ legend{
 padding:8px;
 margin:24px;
 background-color: white;
+width: 60%;
 }
 
 fieldset{
 padding:20px;
 margin:10px
 height:250px;
-width: 50%;
 font-size: 35px;
 background-color: #F5F5F5;
 font-size: large;
 font-size: 150%;
+width: 90%;
 }
 
 label{
@@ -67,7 +69,7 @@ label{
 <div id="menu">
 		<h1>
 			<center>
-				<img src="logo_ifi.png" width="100%" height="100"/>
+				<img src="banniere.JPG" width="1250" height="100"/>
 			</center>
 		</h1>
 	</div>
@@ -75,7 +77,7 @@ label{
  	<form method="post" action="LoginServlet">
  	<center>
  	<fieldset style="border : 50px solid #696969">
-	<legend style="border : 20px solid #D3FF00"><h2>Connexion</h2></legend>
+	<legend style="border : 20px solid #660000"><h2>Connexion</h2></legend>
 	<p>Veuillez vous connecter pour continuer.</p>
 	<label for="email">Username:<span
 	class="requis">*</span></label>
